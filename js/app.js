@@ -24,9 +24,11 @@ console.log(squareEls)
 const messageEl = document.getElementById("message")
 //console.log(messageEl)
 
+//Create CER to store board and take advantage of bubbling
+const boardEl = document.querySelector(".board")
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+boardEl.addEventListener("click",handleClick)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -62,4 +64,14 @@ function render(){
   } else {
     messageEl.textContent = `Player ${winner} has won!`
   }
+}
+
+function handleClick(evt){
+  //Takes the element clicked from bubbling, gets the id of the element, and takes the char at index 2(ignores the sq), then parses as an Int to get index value
+  const sqIdx = parseInt(evt.target.id.charAt(2))
+  if(board[sqIdx] != null || winner != null) return
+  board[sqIdx] = turn
+  turn = turn * -1
+  getWinner()
+  render()
 }

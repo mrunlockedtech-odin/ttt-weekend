@@ -59,34 +59,34 @@
 
 // Step 6 - Handle a player clicking a square with a `handleClick` function
 
-  // 6a) Create a function called `handleClick`. It will have an `evt`
-  //     parameter.
+  //// 6a) Create a function called `handleClick`. It will have an `evt`
+  ////     parameter.
 
-  // 6b) Attach an event listener to the game board (you can do this to each
-  //     one of the existing `squareEls` OR add a new cached element reference
-  //     that will allow you to take advantage of event bubbling). On the
-  //     `'click'` event, it should call the `handleClick` function
-  //     you created in 6a.
+  //// 6b) Attach an event listener to the game board (you can do this to each
+  ////     one of the existing `squareEls` OR add a new cached element reference
+  ////     that will allow you to take advantage of event bubbling). On the
+  ////     `'click'` event, it should call the `handleClick` function
+  ////     you created in 6a.
 
-  // 6c) Obtain the index of the square that was clicked by "extracting" the 
-  //     index from an `id` assigned to the element in the HTML. Assign this  
-  //     to a constant called `sqIdx`.
+  //// 6c) Obtain the index of the square that was clicked by "extracting" the 
+  ////     index from an `id` assigned to the element in the HTML. Assign this  
+  ////     to a constant called `sqIdx`.
 
-  // 6d) If the `board` has a value at the `sqIdx`, immediately `return`  
-  //     because that square is already taken. Also, if `winner` is not `null`
-  //     immediately `return` because the game is over.
+  //// 6d) If the `board` has a value at the `sqIdx`, immediately `return`  
+  ////     because that square is already taken. Also, if `winner` is not `null`
+  ////     immediately `return` because the game is over.
 
-  // 6e) Update the `board` array at the `sqIdx` with the current value of
-  //     `turn`.
+  //// 6e) Update the `board` array at the `sqIdx` with the current value of
+  ////     `turn`.
 
-  // 6f) Change the turn by multiplying `turn` by `-1` (this flips a `1` to
-  //     `-1`, and vice-versa).
+  //// 6f) Change the turn by multiplying `turn` by `-1` (this flips a `1` to
+  ////     `-1`, and vice-versa).
 
-  // 6g) Set the `winner` variable if there's a winner by calling a new 
-  //     function: `getWinner`.
+  //// 6g) Set the `winner` variable if there's a winner by calling a new 
+  ////     function: `getWinner`.
 
-  // 6h) All the state has been updated so we need to render our updated state 
-  //     to the user by calling the `render` function we wrote earlier.
+  //// 6h) All the state has been updated so we need to render our updated state 
+  ////     to the user by calling the `render` function we wrote earlier.
 
 // Step 7 - Build the `getWinner` function
 
