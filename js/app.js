@@ -15,7 +15,7 @@ let board, turn, winner
 // querySelectorAll so they can be accessed via a node list
 
 const squareEls = document.querySelectorAll(".squareBlock")
-//console.log(squareEls)
+console.log(squareEls)
 
 //Create messageEl CER to store the element that displays the game status
 
@@ -36,4 +36,28 @@ function init(){
   turn = 1
   winner = null
   render()
+}
+
+function render(){
+  board.forEach(function(square,idx){
+    console.log(square)
+    if(square === -1){
+      squareEls[idx].style.backgroundColor = "black"
+    } else if(square === 1){
+      squareEls[idx].style.backgroundColor = "white"
+    } else if(square === null){
+      squareEls[idx].style.backgroundColor = "red"
+    }
+  })
+  if(winner === null){
+    if(turn === 1){
+      messageEl.textContent = "Player One, It's Your Turn"
+    } else {
+      messageEl.textContent = "Player Two, It's Your Turn "
+    }
+  } else if(winner === 'T'){
+    messageEl.textContent = "Both Players Have Tied. Let's Play Again!"
+  } else {
+    messageEl.textContent = `Player ${winner} has won!`
+  }
 }

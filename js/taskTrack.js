@@ -35,21 +35,21 @@
 
 // Step 4 - The state of the game should be rendered to the user
 
-  // 4a) Create a function called `render`.
+  //// 4a) Create a function called `render`.
 
-  // 4b) Loop over `board` and for each element:
-  //     - Use the current index of the iteration to access the corresponding 
-  //       square in the `squareEls` array.
-  //     - Style that square however you wish, dependent on the value  
-  //       contained in the current cell being iterated over (`-1`, `1`, or
-  //       `null`).  
+  //// 4b) Loop over `board` and for each element:
+  ////     - Use the current index of the iteration to access the corresponding 
+  ////       square in the `squareEls` array.
+  ////     - Style that square however you wish, dependent on the value  
+  ////       contained in the current cell being iterated over (`-1`, `1`, or
+  ////       `null`).  
   
-  // 4c) Render a message based on the current game state:
-  //     - If winner has a value of `null` (meaning the game is still in
-  //       progress), render whose turn it is.
-  //     - If `winner` is equal to `'T'` (tie), render a tie message.
-  //     - Otherwise, render a congratulatory message to the player that has 
-  //       won.
+  //// 4c) Render a message based on the current game state:
+  ////     - If winner has a value of `null` (meaning the game is still in
+  ////       progress), render whose turn it is.
+  ////     - If `winner` is equal to `'T'` (tie), render a tie message.
+  ////     - Otherwise, render a congratulatory message to the player that has 
+  ////       won.
     
 
 // Step 5 - Define the required constants
