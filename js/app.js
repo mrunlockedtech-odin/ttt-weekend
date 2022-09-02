@@ -28,4 +28,12 @@ const messageEl = document.getElementById("message")
 
 
 /*-------------------------------- Functions --------------------------------*/
+init()
 
+function init(){
+  //console.log("Init Check")
+  board = [null,null,null,null,null,null,null,null,null]
+  turn = 1
+  winner = null
+  render()
+}
