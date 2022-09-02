@@ -28,6 +28,10 @@ div {
   margin: 2px;
 }
 #reset-button{
+  margin-top: 75px;
   width:fit-content;
   margin: 20px auto;
+}
+#message{
+  margin: 20px auto 50px auto;
 }

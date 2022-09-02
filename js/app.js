@@ -44,6 +44,7 @@ function init(){
   resetButton.setAttribute("hidden", true)
   turn = 1
   winner = null
+  resetAnimations()
   render()
 
 }
@@ -119,4 +120,9 @@ function getWinner(){
     return winner
   }
 
+}
+function resetAnimations(){
+  squareEls.forEach(function(element,idx){
+    squareEls[idx].classList.remove("animate__bounceIn")
+  })
 }
