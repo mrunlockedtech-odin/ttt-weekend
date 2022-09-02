@@ -11,7 +11,16 @@ let board, turn, winner
 
 
 /*------------------------ Cached Element References ------------------------*/
+//Create CER to store all elements with class squareBlock to a nodeList with
+// querySelectorAll so they can be accessed via a node list
 
+const squareEls = document.querySelectorAll(".squareBlock")
+//console.log(squareEls)
+
+//Create messageEl CER to store the element that displays the game status
+
+const messageEl = document.getElementById("message")
+//console.log(messageEl)
 
 
 /*----------------------------- Event Listeners -----------------------------*/
