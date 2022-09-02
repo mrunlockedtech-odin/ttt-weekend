@@ -44,7 +44,7 @@ function init(){
 
 function render(){
   board.forEach(function(square,idx){
-    console.log(square)
+    //console.log(square)
     if(square === -1){
       squareEls[idx].style.backgroundColor = "black"
     } else if(square === 1){
@@ -61,8 +61,10 @@ function render(){
     }
   } else if(winner === 'T'){
     messageEl.textContent = "Both Players Have Tied. Let's Play Again!"
+  } else if(winner === 1){
+    messageEl.textContent = `Player 1 has won!`
   } else {
-    messageEl.textContent = `Player ${winner} has won!`
+    messageEl.textContent = `Player 2 has won!`
   }
 }
 
@@ -74,4 +76,17 @@ function handleClick(evt){
   turn = turn * -1
   getWinner()
   render()
+}
+
+function getWinner(){
+  winningCombos.forEach(function(combo){
+    let winningTotal = Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]])
+    if(winningTotal === 3){
+      winner = board[combo[0]]
+    } else if(board.every(element => element === 1 || element === -1)){
+      winner = 'T'
+    } else {
+      winner=null
+    }
+  })
 }
