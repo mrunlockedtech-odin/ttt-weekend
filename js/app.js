@@ -17,7 +17,7 @@ let board, turn, winner
 // querySelectorAll so they can be accessed via a node list
 
 const squareEls = document.querySelectorAll(".squareBlock")
-console.log(squareEls)
+//console.log(squareEls)
 
 //Create messageEl CER to store the element that displays the game status
 
@@ -50,13 +50,17 @@ function init(){
 
 function render(){
   board.forEach(function(square,idx){
+    squareEls[idx].classList.add("animate__animated")
+
     //console.log(square)
     if(square === -1){
-      squareEls[idx].style.backgroundColor = "black"
+      squareEls[idx].classList.add("animate__bounceIn")
+      squareEls[idx].style.backgroundColor = "#277BC0"
     } else if(square === 1){
+      squareEls[idx].classList.add("animate__bounceIn")
       squareEls[idx].style.backgroundColor = "white"
     } else if(square === null){
-      squareEls[idx].style.backgroundColor = "red"
+      squareEls[idx].style.backgroundColor = "#CFD2CF"
     }
   })
   if(winner === null){
@@ -80,20 +84,27 @@ function render(){
 function handleClick(evt){
   //Takes the element clicked from bubbling, gets the id of the element, and takes the char at index 2(ignores the sq), then parses as an Int to get index value
   const sqIdx = parseInt(evt.target.id.charAt(2))
+  //console.log(evt.target.classList)
+  if(evt.target.classList.value.includes("squareBlock")){
   if(board[sqIdx] != null || winner != null) return
   board[sqIdx] = turn
-  console.log(board[sqIdx])
+  //console.log(board[sqIdx])
   turn = turn * -1
   getWinner()
   render()
+  return
+  }else{
+    return null
+  }
+  
 }
 
 function getWinner(){
   winningCombos.forEach(function(combo){
     let winningTotal = Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]])
-    console.log("Combo", combo, winningTotal)
+    //console.log("Combo", combo, winningTotal)
     if(winner === null){
-      console.log(winningTotal)
+      //console.log(winningTotal)
       if(winningTotal === 3){
         winner = board[combo[0]]
         return winner
