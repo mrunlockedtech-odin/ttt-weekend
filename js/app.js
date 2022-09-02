@@ -27,8 +27,12 @@ const messageEl = document.getElementById("message")
 //Create CER to store board and take advantage of bubbling
 const boardEl = document.querySelector(".board")
 
+//Reset Button
+const resetButton = document.getElementById("reset-button")
+
 /*----------------------------- Event Listeners -----------------------------*/
 boardEl.addEventListener("click",handleClick)
+resetButton.addEventListener("click",init)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -37,9 +41,11 @@ init()
 function init(){
   //console.log("Init Check")
   board = [null,null,null,null,null,null,null,null,null]
+  resetButton.setAttribute("hidden", true)
   turn = 1
   winner = null
   render()
+
 }
 
 function render(){
@@ -61,10 +67,13 @@ function render(){
     }
   } else if(winner === 'T'){
     messageEl.textContent = "Both Players Have Tied. Let's Play Again!"
+    resetButton.removeAttribute('hidden')
   } else if(winner === 1){
     messageEl.textContent = `Player 1 has won!`
+    resetButton.removeAttribute('hidden')
   } else {
     messageEl.textContent = `Player 2 has won!`
+    resetButton.removeAttribute('hidden')
   }
 }
 
@@ -73,6 +82,7 @@ function handleClick(evt){
   const sqIdx = parseInt(evt.target.id.charAt(2))
   if(board[sqIdx] != null || winner != null) return
   board[sqIdx] = turn
+  console.log(board[sqIdx])
   turn = turn * -1
   getWinner()
   render()
@@ -81,12 +91,21 @@ function handleClick(evt){
 function getWinner(){
   winningCombos.forEach(function(combo){
     let winningTotal = Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]])
-    if(winningTotal === 3){
-      winner = board[combo[0]]
-    } else if(board.every(element => element === 1 || element === -1)){
-      winner = 'T'
-    } else {
-      winner=null
+    console.log("Combo", combo, winningTotal)
+    if(winner === null){
+      console.log(winningTotal)
+      if(winningTotal === 3){
+        winner = board[combo[0]]
+        return winner
+      } else {
+        winner=null
+      }
     }
   })
+  if(board.every(element => element === 1 || element === -1) && winner === null){
+    winner = 'T'
+  }else{
+    return winner
+  }
+
 }

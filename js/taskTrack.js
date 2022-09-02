@@ -121,9 +121,9 @@
 
 // Step 8 - Create Reset functionality
 
-  // 8a) Add a reset button to the HTML document.
+  //// 8a) Add a reset button to the HTML document.
 
-  // 8b) Store the new reset button element in a constant named `resetBtnEl`.
+  //// 8b) Store the new reset button element in a constant named `resetBtnEl`.
 
-  // 8c) Attach an event listener to the `resetBtnEl`. On the `'click'` event 
-  //     it should call the `init` function you created in 3.
+  //// 8c) Attach an event listener to the `resetBtnEl`. On the `'click'` event 
+  ////     it should call the `init` function you created in 3.
