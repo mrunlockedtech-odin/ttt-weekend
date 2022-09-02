@@ -52,10 +52,10 @@
   ////       won.
     
 
-// Step 5 - Define the required constants
+//// Step 5 - Define the required constants
 
-  // 5a) In a constant called `winningCombos` define the eight possible winning 
-  //     combinations as an array of arrays.
+  //// 5a) In a constant called `winningCombos` define the eight possible winning 
+  ////     combinations as an array of arrays.
 
 // Step 6 - Handle a player clicking a square with a `handleClick` function
 
