@@ -1,14 +1,14 @@
 body {
-    background-color: #f2f2f2;
-	/* Use a system font, if none are available use an available sans-sarif   font */
-    font-family: 'Montserrat', sans-serif;
-	margin: 0;
+  background-color: #f2f2f2;
+  /* Use a system font, if none are available use an available sans-sarif   font */
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #3a3b3c;
-  font-weight:lighter
+  font-weight: lighter
 }
 
 section.board {
@@ -27,11 +27,13 @@ div {
   border-radius: 25%;
   margin: 2px;
 }
-#reset-button{
+
+#reset-button {
   margin-top: 75px;
-  width:fit-content;
+  width: fit-content;
   margin: 20px auto;
 }
-#message{
+
+#message {
   margin: 20px auto 50px auto;
 }

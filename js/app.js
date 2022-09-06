@@ -1,6 +1,6 @@
 /*-------------------------------- Constants --------------------------------*/
 const winningCombos = [
-  [0,1,2], [0,4,8], [0,3,6], [1,4,7], [2,5,8], [3,4,5], [6,7,8], [2,4,6]
+  [0, 1, 2], [0, 4, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [3, 4, 5], [6, 7, 8], [2, 4, 6]
 ]
 
 
@@ -31,16 +31,16 @@ const boardEl = document.querySelector(".board")
 const resetButton = document.getElementById("reset-button")
 
 /*----------------------------- Event Listeners -----------------------------*/
-boardEl.addEventListener("click",handleClick)
-resetButton.addEventListener("click",init)
+boardEl.addEventListener("click", handleClick)
+resetButton.addEventListener("click", init)
 
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 
-function init(){
+function init() {
   //console.log("Init Check")
-  board = [null,null,null,null,null,null,null,null,null]
+  board = [null, null, null, null, null, null, null, null, null]
   resetButton.setAttribute("hidden", true)
   turn = 1
   winner = null
@@ -49,31 +49,31 @@ function init(){
 
 }
 
-function render(){
-  board.forEach(function(square,idx){
+function render() {
+  board.forEach(function (square, idx) {
     squareEls[idx].classList.add("animate__animated")
 
     //console.log(square)
-    if(square === -1){
+    if (square === -1) {
       squareEls[idx].classList.add("animate__bounceIn")
       squareEls[idx].style.backgroundColor = "#277BC0"
-    } else if(square === 1){
+    } else if (square === 1) {
       squareEls[idx].classList.add("animate__bounceIn")
       squareEls[idx].style.backgroundColor = "white"
-    } else if(square === null){
+    } else if (square === null) {
       squareEls[idx].style.backgroundColor = "#CFD2CF"
     }
   })
-  if(winner === null){
-    if(turn === 1){
+  if (winner === null) {
+    if (turn === 1) {
       messageEl.textContent = "Player One, It's Your Turn"
     } else {
       messageEl.textContent = "Player Two, It's Your Turn "
     }
-  } else if(winner === 'T'){
+  } else if (winner === 'T') {
     messageEl.textContent = "Both Players Have Tied. Let's Play Again!"
     resetButton.removeAttribute('hidden')
-  } else if(winner === 1){
+  } else if (winner === 1) {
     messageEl.textContent = `Player 1 has won!`
     resetButton.removeAttribute('hidden')
   } else {
@@ -82,47 +82,47 @@ function render(){
   }
 }
 
-function handleClick(evt){
+function handleClick(evt) {
   //Takes the element clicked from bubbling, gets the id of the element, and takes the char at index 2(ignores the sq), then parses as an Int to get index value
   const sqIdx = parseInt(evt.target.id.charAt(2))
   //console.log(evt.target.classList)
-  if(evt.target.classList.value.includes("squareBlock")){
-  if(board[sqIdx] != null || winner != null) return
-  board[sqIdx] = turn
-  //console.log(board[sqIdx])
-  turn = turn * -1
-  getWinner()
-  render()
-  return
-  }else{
+  if (evt.target.classList.value.includes("squareBlock")) {
+    if (board[sqIdx] != null || winner != null) return
+    board[sqIdx] = turn
+    //console.log(board[sqIdx])
+    turn = turn * -1
+    getWinner()
+    render()
+    return
+  } else {
     return null
   }
-  
+
 }
 
-function getWinner(){
-  winningCombos.forEach(function(combo){
+function getWinner() {
+  winningCombos.forEach(function (combo) {
     let winningTotal = Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]])
     //console.log("Combo", combo, winningTotal)
-    if(winner === null){
+    if (winner === null) {
       //console.log(winningTotal)
-      if(winningTotal === 3){
+      if (winningTotal === 3) {
         winner = board[combo[0]]
         return winner
       } else {
-        winner=null
+        winner = null
       }
     }
   })
-  if(board.every(element => element === 1 || element === -1) && winner === null){
+  if (board.every(element => element === 1 || element === -1) && winner === null) {
     winner = 'T'
-  }else{
+  } else {
     return winner
   }
 
 }
-function resetAnimations(){
-  squareEls.forEach(function(element,idx){
+function resetAnimations() {
+  squareEls.forEach(function (element, idx) {
     squareEls[idx].classList.remove("animate__bounceIn")
   })
 }
