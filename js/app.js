@@ -57,6 +57,7 @@ function render() {
     if (square === -1) {
       squareEls[idx].classList.add("animate__bounceIn")
       squareEls[idx].style.backgroundColor = "#277BC0"
+      console.log(idx)
     } else if (square === 1) {
       squareEls[idx].classList.add("animate__bounceIn")
       squareEls[idx].style.backgroundColor = "white"
